@@ -7,8 +7,9 @@ public class Cs545_Hw6 {
      * The first pass has already been done for you. (1.5pt)
      */
     public static void insertion(int[] array) {
+        print(array);
         for(int i = 1; i < array.length; i++) {
-            print(array);
+
             int curr = array[i];
             int j = i;
             while(j >= 1 && array[j - 1] > curr) {
@@ -16,6 +17,7 @@ public class Cs545_Hw6 {
                 j--;
             }
             array[j] = curr;
+            print(array);
         }
     }
 
@@ -31,11 +33,78 @@ public class Cs545_Hw6 {
      * element to the front of the array). The result after the first pass (after bubbling up 3) is shown
      * below. Show the remaining passes. (1.5pt)
      */
+    public static void bubbleSort(int[] array) {
+        print(array);
+        for(int i = 0; i < array.length; i++) {
+            for(int j = array.length - 1; j > i; j--) {
+                if(array[j - 1] > array[j]) {
+                    swap(array, j, j -1);
+                }
+            }
+            print(array);
+        }
+    }
+
+    public static void swap(int[] array, int i, int j) {
+        int temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
 
     /**
      * Problem 3: Show intermediate steps of sorting the array with Merge Sort. Show the result after each
      * recursive call to the merge sort routine. (1.5 pt)
      */
+
+    public static int[] mergeSort(int[] array) {
+        if(array.length < 2) return array;
+        int mid = array.length / 2;
+        int[] a1 = new int[mid];
+        int[] a2 = new int[array.length - mid];
+        for(int i = 0; i  < mid; i++) {
+            a1[i] = array[i];
+            a2[i] = array[mid + i];
+        }
+
+        //When array.length is a odd number, the last elem of a2 is 0
+        a2[a2.length - 1] = array[array.length - 1];
+//        System.out.print("a1 is : ");
+//        print(a1);
+//        System.out.print("a2 is : ");
+//        print(a2);
+        return merge(mergeSort(a1), mergeSort(a2));
+    }
+
+    public static int[] merge(int[] arr1, int[] arr2) {
+        int i = 0;
+        int j = 0;
+        int k = 0;
+        int[] res = new int[arr1.length + arr2.length];
+        while(i < arr1.length && j < arr2.length) {
+            if(arr1[i] < arr2[j]) {
+                res[k++] = arr1[i++];
+                System.out.println("i = " + i);
+            } else {
+                res[k++] = arr2[j++];
+            }
+        }
+        while(i < arr1.length) {
+            System.out.println(arr1.length + " i = " + i);
+            res[k++] = arr1[i++];
+        }
+        while(j < arr2.length) {
+            System.out.println(arr1.length + " j = " + j);
+            res[k++] = arr2[j++];
+        }
+//        System.out.print("res is: ");
+//        print(res);
+//        System.out.print("arr1 is : ");
+//        print(arr1);
+//        System.out.print("arr2 is : ");
+        print(arr2);
+        return res;
+    }
+
 
     /**
      * Problem 4: Show intermediate steps of sorting the same array with Quick Sort. Show the result after
@@ -45,12 +114,44 @@ public class Cs545_Hw6 {
      */
 
     /**
-     * Problem 5: Show the array after each pass of Heap Sort (using a max heap, and sorting in-place). A
-     * pass corresponds to removing the current largest element from the heap, placing it in the correct
-     * place in the array, and fixing the heap. (1.5 pt)
+     *Pick the middle element as pivot point
      */
+    public static void QuickSort(int[] arr) {
+        QuickSort(arr, 0, arr.length - 1);
+    }
 
-    public static void main(String[] args) {
+    public static void QuickSort(int[] arr, int start, int end) {
+        System.out.println("h");
+        if(start >= end) return;
+        int i = start;
+        int j = end;
+        int mid = (i + j) / 2;
+        //Store the pivot point's value
+        int pivot = arr[mid];
+        System.out.println("pivot = " + pivot);
+        //Swap the elements of index mid and j
+        swap(arr, mid, j);
+        j--;
+        while(i <= j) {
+            //Note the i <= j should come first to check the index ot of bound
+            for(; i <= j && arr[i] < pivot; i++);
+            for(; i <= j && arr[j] > pivot; j--);
+
+            //After moving the i and j, if i still smaller or equals to j call swap, otherwise break the loop
+            if(i <= j) {
+                swap(arr, i, j);
+            } else {
+                break;
+            }
+        }
+        swap(arr, i, end);
+        //Sort the left part of the pivot point
+        QuickSort(arr, start, i - 1);
+        //Sort the right part of the pivot point
+        QuickSort(arr, i + 1, end);
+    }
+
+    public static int[] createArray() {
         int[] array = new int[13];
         array[0] = 17;
         array[1] = 10;
@@ -65,7 +166,40 @@ public class Cs545_Hw6 {
         array[10] = 5;
         array[11] = 14;
         array[12] = 3;
+        return array;
+    }
+
+
+    /**
+     * Problem 5: Show the array after each pass of Heap Sort (using a max heap, and sorting in-place). A
+     * pass corresponds to removing the current largest element from the heap, placing it in the correct
+     * place in the array, and fixing the heap. (1.5 pt)
+     */
+
+    public static void main(String[] args) {
+        int[] array = createArray();
         insertion(array);
+
+        System.out.println("Do the bubble sort**********");
+        array = createArray();
+        bubbleSort(array);
+
+        System.out.println("Do the merge sort**********");
+        array = createArray();
+        System.out.println("Original array: ");
+        print(array);
+        array = mergeSort(array);
+        System.out.println("Merge sorted array: ");
+        print(array);
+
+        System.out.println("Do the Quick sort**********");
+        array = createArray();
+        System.out.println("Original array: ");
+        print(array);
+        QuickSort(array);
+        System.out.println("Quick sorted array: ");
+        print(array);
+
     }
 
 }
