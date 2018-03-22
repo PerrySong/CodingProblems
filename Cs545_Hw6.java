@@ -8,6 +8,7 @@ public class Cs545_Hw6 {
      */
     public static void insertion(int[] array) {
         for(int i = 1; i < array.length; i++) {
+            print(array);
             int curr = array[i];
             int j = i;
             while(j >= 1 && array[j - 1] > curr) {
@@ -16,6 +17,13 @@ public class Cs545_Hw6 {
             }
             array[j] = curr;
         }
+    }
+
+    public static void print(int[] array) {
+        for(int elem: array) {
+            System.out.print(elem + " ");
+        }
+        System.out.print("\n");
     }
 
     /**
@@ -43,7 +51,21 @@ public class Cs545_Hw6 {
      */
 
     public static void main(String[] args) {
-
+        int[] array = new int[13];
+        array[0] = 17;
+        array[1] = 10;
+        array[2] = 15;
+        array[3] = 13;
+        array[4] = 4;
+        array[5] = 12;
+        array[6] = 7;
+        array[7] = 9;
+        array[8] = 16;
+        array[9] = 8;
+        array[10] = 5;
+        array[11] = 14;
+        array[12] = 3;
+        insertion(array);
     }
 
 }
