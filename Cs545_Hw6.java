@@ -151,6 +151,36 @@ public class Cs545_Hw6 {
         QuickSort(arr, i + 1, end);
     }
 
+    public static void zeroFront(int[] array) {
+        int i = 0;
+        int j = array.length - 1;
+        while(i < j) {
+            for(; i < array.length && array[i] == 0; i++);
+            for(; j >= 0 && array[j] == 1; j--);
+            if(i >= j) break;
+            swap(array, i, j);
+        }
+    }
+
+    public static void zot(int[] array) {
+        int i = 0;
+        int j = array.length - 1;
+        while(i < j) {
+            for(; i < array.length && array[i] == 0; i++);
+            for(; j >= 0 && array[j] == 1; j--);
+            if(i >= j) break;
+            swap(array, i, j);
+        }
+        j = array.length - 1;
+        while(i < j) {
+            for(; i < array.length && array[i] == 1; i++);
+            for(; j >= 0 && array[j] == 2; j--);
+            if(i >= j) break;
+            swap(array, i, j);
+        }
+    }
+
+
     public static int[] createArray() {
         int[] array = new int[13];
         array[0] = 17;
@@ -199,7 +229,23 @@ public class Cs545_Hw6 {
         QuickSort(array);
         System.out.println("Quick sorted array: ");
         print(array);
-
+        System.out.println("Test zeroFirst**************");
+        int[] arr = new int[5];
+        arr[1] = 1;
+        arr[3] = 1;
+        print(arr);
+        System.out.println("After: ");
+        zeroFront(arr);
+        print(arr);
+        System.out.println("Test zot **************");
+        arr = new int[5];
+        arr[1] = 1;
+        arr[3] = 1;
+        arr[0] = 2;
+        print(arr);
+        System.out.println("After: ");
+        zot(arr);
+        print(arr);
     }
 
 }
