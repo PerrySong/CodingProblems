@@ -38,7 +38,7 @@ public class CovertSortArrayToBST {
     }
 
     public static void main(String[] args) {
-        
+
     }
 
 }
