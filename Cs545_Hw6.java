@@ -1,3 +1,7 @@
+import javax.jws.soap.SOAPBinding;
+import java.util.Iterator;
+import java.util.LinkedList;
+
 public class Cs545_Hw6 {
 
     /**
@@ -145,10 +149,59 @@ public class Cs545_Hw6 {
             }
         }
         swap(arr, i, end);
+        System.out.println("Quick sort step: ***");
+        print(arr);
         //Sort the left part of the pivot point
         QuickSort(arr, start, i - 1);
         //Sort the right part of the pivot point
         QuickSort(arr, i + 1, end);
+    }
+
+    /**Problem 5: Show the array after each pass of Heap Sort (using a max heap, and sorting in-place).
+     * A pass corresponds to removing the current largest element from the heap, placing it in the correct
+     * place in the array, and fixing the heap. (1.5 pt)
+     * @param array
+     */
+    public static void heapSort(int[] array) {
+        //Build a max heap
+        buildMaxHeap(array);
+        System.out.println("The heap is: ");
+        print(array);
+        for(int size = array.length; size > 0; ) {
+            //Move the current root to end
+            swap(array, 0, size - 1);
+            System.out.println(array.length - size + 1 + "th swap: ");
+            print(array);
+            //Update the size
+            size--;
+            pushDown(array, size,0);
+            System.out.println(array.length - size + 1 + "th push down: ");
+            print(array);
+        }
+    }
+
+    public static void buildMaxHeap(int[] array) {
+        for(int i = array.length / 2 - 1; i >= 0; i--) {
+            pushDown(array, array.length, i);
+        }
+    }
+
+    public static void pushDown(int[] array, int size, int i) {
+        int largest = i;
+        int l = i * 2; //Left child = i * 2
+        int r = i * 2 +1; //Right = i * 2 + 1
+        if(l < size && array[largest] < array[l]) {
+            largest = l;
+        }
+        if(r < size && array[largest] < array[r]) {
+            largest = r;
+        }
+        if(i != largest) {
+            int swap = array[i];
+            array[i] = array[largest];
+            array[largest] = swap;
+            pushDown(array, size, largest);
+        }
     }
 
     public static void zeroFront(int[] array) {
@@ -180,6 +233,46 @@ public class Cs545_Hw6 {
         }
     }
 
+    public static void countingSort(int[] array, int low, int high) {
+        int[] count = new int[high - low + 1];
+        for(int i = 0; i < array.length; i++) {
+            count[array[i]]++;
+
+        }
+        System.out.println(count[0] + "*******");
+        int k = 0;
+        for(int i = 0; i < count.length; i++) {
+            for(int j = 0; j < count[i]; j++) {
+                array[k] = i + low;
+                k++;
+            }
+        }
+    }
+
+    private class Elem {
+
+    }
+
+    public static void binSort(Elem[] arr, int maxVal) {
+        LinkedList<Elem>[] llists = new LinkedList[maxVal + 1];
+        for(int i = 0; i <= maxVal; i++) {
+
+        }
+        for(int i = 0; i < arr.length; i++) {
+
+        }
+        int k = 0;
+        //Put it back to array:
+        for(int i = 0; i <= maxVal; i++) {
+            Iterator<Elem> it = llists[i].iterator();
+            while(it.hasNext()) {
+                Elem elem = it.next();
+                arr[k] = elem;
+                k++;
+            }
+        }
+
+    }
 
     public static int[] createArray() {
         int[] array = new int[13];
@@ -245,6 +338,22 @@ public class Cs545_Hw6 {
         print(arr);
         System.out.println("After: ");
         zot(arr);
+        print(arr);
+        System.out.println("Test counting sort **************");
+        arr = new int[5];
+        arr[1] = 1;
+        arr[3] = 1;
+        arr[0] = 2;
+        print(arr);
+        System.out.println("After sorted ***********");
+        countingSort(arr, 0, 3);
+        print(arr);
+
+        System.out.println("Test heap sort **************");
+        arr = createArray();
+        print(arr);
+        heapSort(arr);
+        System.out.println("After sorted ***********");
         print(arr);
     }
 
