@@ -10,7 +10,7 @@ public class BSTIterator {
     }
 
     Stack<TreeNode> stack;
-    
+
     public BSTIterator(TreeNode root) {
         stack = new Stack<TreeNode>();
         pushAll(root);
