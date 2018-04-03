@@ -70,6 +70,7 @@ public class Cs545_Hw6 {
             a2[i] = array[mid + i];
         }
 
+        
         //When array.length is a odd number, the last elem of a2 is 0
         a2[a2.length - 1] = array[array.length - 1];
 //        System.out.print("a1 is : ");
