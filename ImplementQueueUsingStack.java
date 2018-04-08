@@ -1,6 +1,7 @@
 import java.util.Stack;
 
 public class ImplementQueueUsingStack {
+
     private Stack<Integer> stack1;
     private Stack<Integer> stack2;
     /** Initialize your data structure here. */
@@ -25,6 +26,10 @@ public class ImplementQueueUsingStack {
 
     /** Get the front element. */
     public int peek() {
+        if(this.empty()) return -1;
+        if(stack2.empty())
+            while(!stack1.empty())
+                stack2.push(stack1.pop());
         int res = stack2.pop();
         stack2.push(res);
         return res;
