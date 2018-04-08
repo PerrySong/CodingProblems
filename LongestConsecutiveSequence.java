@@ -11,21 +11,26 @@ import java.util.HashMap;
  */
 
 public class LongestConsecutiveSequence {
-    public int longestConsecutive(int[] nums) {
+    /** Note: If there is no such key in the HashMap  */
+    public static int longestConsecutive(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
         int res = 0;
         for(int num : nums) {
-            if(map.get(num) == 0) {
-                int left = num - 1;
-                int right = num + 1;
-                int sum = 1 + map.get(left) + map.get(right);
+            if(!map.containsKey(num)) {
+                int left = map.containsKey(num - 1)? map.get(num - 1) : 0;
+                int right = map.containsKey(num + 1)? map.get(num + 1) : 0;
+                int sum = 1 + left + right;
                 map.put(num, sum);
                 res = sum > res ? sum:res;
                 //Extend the sum
-                map.put(num - map.get(left), sum);
-                map.put(num + map.get(right), sum);
+                map.put(num -  left, sum);
+                map.put(num + right, sum);
             }
         }
         return res;
+    }
+    public static void main(String[] args) {
+        int[] arr = {100,4,200,1,3,2};
+        System.out.println(longestConsecutive(arr));
     }
 }
