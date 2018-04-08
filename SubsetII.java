@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class SubsetII {
@@ -24,6 +25,7 @@ public class SubsetII {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         List<Integer> initSet = new ArrayList<>();
         List<List<Integer>> res = new ArrayList<List<Integer>>();
+        Arrays.sort(nums);
         helper(nums, initSet, res, 0);
         return res;
     }
