@@ -106,7 +106,7 @@ public class WorstLink {
 
         String word = "smmaaggemgegmseeemaaemgmaaemaasasesmgmegaeaagmmegssggaammmaagseeamemeaeaaegsmseemmsesagaggeaagmgagma";
         for(int i = 0; i < word.length()/2; i ++) {
-            
+
         }
 
 

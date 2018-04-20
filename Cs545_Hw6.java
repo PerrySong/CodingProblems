@@ -171,10 +171,11 @@ public class Cs545_Hw6 {
         for(int size = array.length; size > 0; ) {
             //Move the current root to end
             swap(array, 0, size - 1);
-            System.out.println(array.length - size + 1 + "th swap: ");
+//            System.out.println(array.length - size + 1 + "th swap: ");
             print(array);
             //Update the size
             size--;
+//            buildMaxHeap(array);
             pushDown(array, size,0);
             System.out.println(array.length - size + 1 + "th push down: ");
             print(array);
@@ -184,13 +185,16 @@ public class Cs545_Hw6 {
     public static void buildMaxHeap(int[] array) {
         for(int i = array.length / 2 - 1; i >= 0; i--) {
             pushDown(array, array.length, i);
+
         }
+        System.out.println("Max heap = ");
+        print(array);
     }
 
     public static void pushDown(int[] array, int size, int i) {
         int largest = i;
-        int l = i * 2; //Left child = i * 2
-        int r = i * 2 +1; //Right = i * 2 + 1
+        int l = i * 2 + 1; //Left child = i * 2
+        int r = i * 2 + 2; //Right = i * 2 + 1
         if(l < size && array[largest] < array[l]) {
             largest = l;
         }
