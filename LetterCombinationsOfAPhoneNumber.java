@@ -5,6 +5,8 @@ public class LetterCombinationsOfAPhoneNumber {
 
     public List<String> letterCombinations(String digits) {
         List<String> res = new ArrayList<>();
+        if(digits.equals(""))
+            return res;
         helper(digits, 0, res, new StringBuilder());
         return res;
     }
@@ -36,6 +38,6 @@ public class LetterCombinationsOfAPhoneNumber {
 
     public static void main(String[] args) {
         LetterCombinationsOfAPhoneNumber a = new LetterCombinationsOfAPhoneNumber();
-        System.out.println(a.letterCombinations("23"));
+        System.out.println(a.letterCombinations(""));
     }
 }
