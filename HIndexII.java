@@ -47,9 +47,9 @@ public class HIndexII {
     public int hIndexBS(int[] citations) {
         if(citations.length == 0) return 0;
         int start = 0;
-        int end = citations.length;
+        int end = citations.length - 1;
         int h = 0;
-        while(start < end) {
+        while(start <= end) {
             int mid = start + (end - start) / 2;
             if(citations[mid] >= citations.length - mid){
 
@@ -66,7 +66,7 @@ public class HIndexII {
 
     public static void main(String[] args) {
         HIndexII a = new HIndexII();
-        int[] c = {0,1,3,5,6};
+        int[] c = {0};
         System.out.println(a.hIndexBS(c));
     }
 
