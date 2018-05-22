@@ -15,6 +15,7 @@ public class SearchA2DMatrix {
                 end = curRow - 1;
             else
                 start = curRow + 1;
+            
         }
         start = 0;
         end = matrix[0].length - 1;
