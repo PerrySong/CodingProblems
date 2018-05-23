@@ -17,15 +17,32 @@ public class RedundantConnection {
     }
 
     private void union(int node1, int node2, int[] tree) {
-        tree[node2] = node1;
+        int r1 = findRoot(node1, tree);
+        int r2 = findRoot(node2, tree);
+        if(tree[r1] < tree[r2]) {
+            tree[r2] = r1;
+            tree[r1]--;
+        } else {
+            tree[r1] = r2;
+            tree[r2]--;
+        }
+
     }
+
+    private int findRoot(int node, int[] tree) {
+        while(tree[node] > -1)
+            node = tree[node];
+        return node;
+    }
+
+
 
     private boolean find(int node1, int node2, int[] tree) {
 
 
-        while(tree[node1] != -1)
+        while(tree[node1] > -1)
             node1 = tree[node1];
-        while(tree[node2] != -1)
+        while(tree[node2] > -1)
             node2 = tree[node2];
         return node1 == node2;
     }
