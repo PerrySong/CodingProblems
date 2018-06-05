@@ -16,7 +16,7 @@ public class FindTheCelebrity {
 
          Note: There will be exactly one celebrity if he/she is in the party. Return the celebrity's label if there is a
         celebrity in the party. If there is no celebrity, return -1.
-     
+
      */
     boolean knows(int a, int b) {
         return false;
