@@ -46,7 +46,7 @@ public class FindTheCelebrity {
         }
         for(int k = 0; k < n; k++) {
             if(candidates[k])
-                return k + 1;
+                return k;
         }
         return -1;
     }
