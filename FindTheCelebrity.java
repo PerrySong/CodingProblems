@@ -44,6 +44,21 @@ public class FindTheCelebrity {
                 }
             }
         }
+
+        for(int i = 0; i < n; i++) {
+            if(candidates[i]) {
+                //If i is a candidate
+                for(int j = 0; j < n; j++) {
+                    if(j != i) {
+                        if(knows(i, j)) {
+                            //Someone does not know i, i is not celebrity
+                            candidates[i] = false;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
         for(int k = 0; k < n; k++) {
             if(candidates[k])
                 return k;
