@@ -54,6 +54,7 @@ public class FindTheCelebrity {
                             //Someone does not know i, i is not celebrity
                             candidates[i] = false;
                             break;
+                            
                         }
                     }
                 }
