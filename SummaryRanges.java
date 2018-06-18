@@ -39,6 +39,7 @@ public class SummaryRanges {
                     s.append(("->" + String.valueOf(prev)));
                 }
                 res.add(s.toString());
+
                 if(i < nums.length) {
                     prev = nums[i];
                     s = new StringBuilder();
