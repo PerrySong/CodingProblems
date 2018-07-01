@@ -23,7 +23,7 @@ public class DivideTwoIntegers {
          [−231,  231 − 1]. For the purpose of this problem, assume that your function returns 231 − 1 when the division result overflows.
      */
 
-    public int divide(int dividend, int divisor) {
+    public static int divide(int dividend, int divisor) {
         int sign = 1;
         if(dividend > 0 && divisor < 0 || dividend < 0 && divisor > 0)
             sign = -1;
