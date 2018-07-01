@@ -44,7 +44,7 @@ public class DivideTwoIntegers {
         }
     }
 
-    private long divideHelper(long dividend, long divisor) {
+    private static long divideHelper(long dividend, long divisor) {
         if(dividend < divisor) return 0;
         long multiple = 1;
         long sum = divisor;
