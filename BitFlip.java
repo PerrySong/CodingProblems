@@ -3,7 +3,7 @@ public class BitFlip {
     public static int bitFlip(int[] array, int length) {
         int left = 0, right = length - 1;
         int res = 0;
-        while (left < right) {
+        while (left <= right) {
             while (array[left] == 1) {
                 left++;
             }
