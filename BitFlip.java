@@ -1,6 +1,6 @@
 public class BitFlip {
-    
-    public int bitFlip(int[] array, int length) {
+
+    public static int bitFlip(int[] array, int length) {
         int left = 0, right = length - 1;
         int res = 0;
         while (left < right) {
@@ -11,7 +11,7 @@ public class BitFlip {
             while (array[right] == 1) {
                 right--;
             }
-            int cf = countFlip(array, left, right)
+            int cf = countFlip(array, left, right);
             res = res > cf ? res : cf;
             while (array[left] == 0) {
                 left++;
@@ -24,7 +24,7 @@ public class BitFlip {
         return res;
     }
 
-    private int countFlip(int[] array, int left, int right) {
+    private static int countFlip(int[] array, int left, int right) {
         int count = 0;
         for (int i = 0; i < left; i++) {
             if (array[i] == 1) count++;
@@ -36,5 +36,9 @@ public class BitFlip {
             if (array[i] == 1) count++;
         }
         return count;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(bitFlip(new int[] {1, 0, 0, 1, 0, 0, 1, 0}, 8));
     }
 }
