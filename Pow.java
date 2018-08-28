@@ -1,4 +1,5 @@
 public class Pow {
+    //Binary Search
     /**
          Implement pow(x, n), which calculates x raised to the power n (xn).
 
@@ -18,8 +19,10 @@ public class Pow {
          Note:
 
          -100.0 < x < 100.0
-         n is a 32-bit signed integer, within the range [−231, 231 − 1]
+         n is a 32-bit signed integer, within the range [−2^31, 2^31 − 1]
      */
+
+    //Solution 1:
     public double myPow(double x, int n) {
         if (n == 0) return 1;
         if (n == 1) return x;
@@ -28,4 +31,29 @@ public class Pow {
         if (n % 2 == 0) return myPow(myPow(x, n / 2), 2);
         else return x * myPow(myPow(x, (n - 1) / 2), 2);
     }
+
+    //Solution 2:
+    public double myPow2(double x, int n) {
+        if (n >= 0) {
+            return pow(x, n);
+        } else {
+            return 1.0 / pow(x, n);
+        }
+    }
+
+    private double pow(double x, int n) {
+        if (n == 0) return 1;
+        if (n == 1) return x;
+        double y = pow(x, n / 2);
+        if (n % 2 == 0) {
+            return y * y;
+        } else {
+            return y * y * x;
+        }
+    }
+
+    //Solution 3:
+//    public double myPow3(double x, int n) {
+//        if (n == 0) return x;
+//    }
 }
