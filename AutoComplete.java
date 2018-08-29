@@ -23,6 +23,10 @@ public class AutoComplete {
 
     TreeNode root;
 
+    /**
+     * Constructor
+     * @param library
+     */
     public AutoComplete(String[] library) {
         this.root = new TreeNode();
 
@@ -76,11 +80,13 @@ public class AutoComplete {
     }
 
     public static void main(String[] args) {
+
         String[] sArray = { "bat", "ball", "barrage", "barrier", "bell"};
         AutoComplete a = new AutoComplete(sArray);
-
-
         System.out.println(a.complete("ba"));
+        System.out.println(a.complete("be"));
+        System.out.println(a.complete("a"));
+        System.out.println(a.complete(""));
     }
 
 }
