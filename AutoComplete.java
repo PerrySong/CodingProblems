@@ -55,8 +55,6 @@ public class AutoComplete {
             cur = cur.children.get(c);
         }
 
-
-
         completeHelper(res, new StringBuilder(prefix), cur);
 
         return res;
@@ -76,7 +74,6 @@ public class AutoComplete {
             tmp.delete(tmp.length() - 1, tmp.length());
 
         }
-
     }
 
     public static void main(String[] args) {
