@@ -62,10 +62,9 @@ public class AutoComplete {
 
     //Depth first search helper, add all completed words into list
     private void completeHelper(List<String> list, StringBuilder tmp, TreeNode cur) {
-
+        if (cur == null) return;
         if (cur.isWord) {
             list.add(tmp.toString());
-            return;
         }
 
         for (TreeNode node: cur.children.values()) {
@@ -79,11 +78,54 @@ public class AutoComplete {
     public static void main(String[] args) {
 
         String[] sArray = { "bat", "ball", "barrage", "barrier", "bell"};
-        AutoComplete a = new AutoComplete(sArray);
+        String[] sArray2 = {
+                "whids",
+               "whyever",
+               "whiff",
+               "whiffable",
+               "whiffed",
+               "Whiffen",
+               "whiffenpoof",
+               "whiffer",
+               "whiffers",
+               "whiffet",
+               "whiffets",
+               "whiffy",
+               "whiffing",
+               "whiffle",
+               "whiffled",
+               "whiffler",
+               "whifflery",
+               "whiffleries",
+               "whifflers",
+               "whiffles",
+               "whiffletree",
+               "whiffletrees",
+               "whiffling",
+               "whifflingly",
+               "whiffs",
+               "whyfor",
+               "whift",
+               "Whig"
+        };
+
+        AutoComplete a = new AutoComplete(sArray2);
+        System.out.println(a.complete("whi"));
+
         System.out.println(a.complete("ba"));
         System.out.println(a.complete("be"));
         System.out.println(a.complete("a"));
         System.out.println(a.complete(""));
+
+        //fizz buzz:
+//        for (int i = 1; i <= 100; i++) {
+//
+//            if (i % 5 == 0 && i % 3 == 0) System.out.println("fizz buzz");
+//            else if (i % 3 == 0) System.out.println("buzz");
+//            else if (i % 5 == 0) System.out.println("fizz");
+//            else System.out.println(i);
+//        }
+
     }
 
 }
