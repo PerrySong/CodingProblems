@@ -22,7 +22,7 @@ public class LongestPalindrome {
     public int longestPalindrome(String s) {
         if (s == null) return 0;
         int size = s.length();
-        int[] charCount = new int[256];
+        int[] charCount = new int[128];
         int res = 0;
 
         for (int i = 0; i < size; i++) {
