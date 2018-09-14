@@ -25,7 +25,7 @@ public class CustomSortString {
          T has length at most 200.
          S and T consist of lowercase letters only.
      */
-    
+
     // Use a bucket to store T
     // Loop through S and append char from bucket
     public String customSortString(String S, String T) {
