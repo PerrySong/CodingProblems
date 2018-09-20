@@ -1,11 +1,9 @@
 public class CareerPrepProblems {
     /**
-     *  Tree, highest sum
-     *              1
-     *   2 dimensional array
+     *
      *
      *   Find the largest sum from the root to the bottom.
-     *   Node [i, j] can only go to node [i + 1, j], [i + 1, j + 1]
+     *   From node [i, j], you can only go to node [i + 1, j], [i + 1, j + 1]
      *
      *   10
      *   22 31
