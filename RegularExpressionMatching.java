@@ -60,44 +60,39 @@ public class RegularExpressionMatching {
 
 
         //Fill the first column **
-        for (int row = 1; row < dp.length; row++) {
-            if (pCharArr[row - 1] == '*')
-                dp[row][0] = row == 1 || dp[row - 2][0];
+        for (int row = 0; row < dp.length - 1; row++) {
+            if (pCharArr[row] == '*')
+                dp[row + 1][0] = row >= 1 && dp[row - 1][0];
         }
 
-        for (int row = 1; row < dp.length; row++) {
-            for (int col = 1; col < dp[0].length; col++) {
-
-//                System.out.println(row + " " + col);
-                if (pCharArr[row - 1] == '*') {
-                    if (row >= 2 && pCharArr[row - 2] == '.') {
-                        dp[row][col] = col == 0 || dp[row - 1][col - 1] || dp[row - 1][col] || dp[row][col - 1];
-                        System.out.println(row + " " + col);
-                    } else { //If previous char matched extend or skip to p's next char
-//                        System.out.println(sCharArr[col - 2] == sCharArr[col - 1]);
-
-                        dp[row][col] = (col >= 2 && sCharArr[col - 2] == sCharArr[col - 1] || dp[row - 1][col]) || (row >= 2) && dp[row - 2][col] || dp[row - 1][col];
-
+        for (int row = 0; row < dp.length - 1; row++) {
+            for (int col = 0; col < dp[0].length - 1; col++) {
+                if (pCharArr[row] == '.' || pCharArr[row] == sCharArr[col]) {
+                    dp[row + 1][col + 1] = dp[row][col];
+                } else if (pCharArr[row] == '*') {
+                    if (row >= 1 && dp[row - 1][col + 1])
+                        dp[row + 1][col + 1] = true; // Delete the previous char
+                    else if (row >= 1 && pCharArr[row - 1] == '.') { // if previous char in p is '.' or previous s Char == current s char (* represent extend).
+                        dp[row + 1][col + 1] = dp[row][col] || dp[row + 1][col];
+                    } else if (dp[row][col + 1]) { // ignore *
+                        dp[row + 1][col + 1] = true;
+                    } else if (col >= 1 && sCharArr[col] == sCharArr[col - 1]) { // Extend *,
+                        dp[row + 1][col + 1] = dp[row][col];
                     }
-                } else if (pCharArr[row - 1] == '.') {
-                    dp[row][col] = dp[row - 1][col - 1];
-                } else if (pCharArr[row - 1] == sCharArr[col - 1]) {
-
-                    dp[row][col] = dp[row - 1][col - 1];
-                    System.out.println(row + " " + col);
-
-                } else {
-                    // dp[row][col] = false by default
-//                    continue;
                 }
-                System.out.println(row + " " + col + ": " +  dp[row][col]);
             }
         }
         return dp[dp.length - 1][dp[0].length - 1];
     }
 
     public static void main(String[] args) {
+
+        System.out.println(isMatch("aaa", ".*"));
+        System.out.println(isMatch("aaa", "ab*a"));
+        System.out.println(isMatch("aab", "c*a*b"));
+        System.out.println(isMatch("aaca", "ab*a*c*a"));
         System.out.println(isMatch("aaa", "ab*a*c*a"));
-        System.out.println(isMatch("aaa", "ab*aa"));
+//        System.out.println(isMatch("aaa", "ab*a*c*a"));
+//        System.out.println(isMatch("aaa", "ab*aa"));
     }
 }
