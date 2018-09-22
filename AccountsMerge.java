@@ -126,7 +126,6 @@ public class AccountsMerge {
         accounts.add(new ArrayList<String>( Arrays.asList(new String[] {"Kevin","Kevin4@m.co","Kevin2@m.co","Kevin2@m.co"})));
         accounts.add(new ArrayList<String>(Arrays.asList(new String[] {"Gabe","Gabe0@m.co","Gabe3@m.co","Gabe2@m.co"})));
         accounts.add(new ArrayList<String>(Arrays.asList(new String[] {"Gabe","Gabe3@m.co","Gabe4@m.co","Gabe2@m.co"})));
-
         AccountsMerge a = new AccountsMerge();
         System.out.println(a.accountsMerge(accounts));
     }
