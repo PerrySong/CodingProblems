@@ -23,7 +23,7 @@ s
 
             while(start < s.length() && count[s.charAt(end)] == 1) {
                 count[s.charAt(start++)]--;
-            }s
+            }
             count[s.charAt(end)]++;
             max = Math.max(max, end - start + 1);
             end++;
