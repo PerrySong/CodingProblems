@@ -101,10 +101,14 @@ public class CareerPrepProblems {
         return res;
     }
 
+    /**
+     *
+     * @param fileName
+     * @return
+     */
     public static int[][] readTriangle(String fileName) {
         List<List<Integer>> resList = new ArrayList<>();
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String text;
             int level = 0;
             while ((text = reader.readLine()) != null) {
