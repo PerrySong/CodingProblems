@@ -33,7 +33,6 @@ public class LongestValidParentheses {
 
         }
         end--;
-
         while (open > 0 && start < s.length()) {
             if (s.charAt(start) == '(')
                 open--;
