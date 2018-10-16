@@ -13,37 +13,39 @@ public class LongestValidParentheses {
          Output: 4
          Explanation: The longest valid parentheses substring is "()()"
      */
+
+    /**
+     * T(n) = n ^ 2
+     * @param s
+     * @return
+     */
     public int longestValidParentheses(String s) {
-        if (s == null) return 0;
-        int start = 0, end = 0, open = 0, res = 0;
-        while(end < s.length()) {
-            if (s.charAt(end) == '(')
-                open++;
-            else if (s.charAt(end) == ')') {
-                open--;
-            }
-            if (open == 0) {
-                res = Math.max(end - start + 1, res);
-            }
-            end++;
-            if (open < 0) {
-                start = end;
-                open = 0;
-            }
-
-        }
-        end--;
-        while (open > 0 && start < s.length()) {
-            if (s.charAt(start) == '(')
-                open--;
-            else if (s.charAt(start) == ')') {
-                open++;
-            }
-            start++;
-        }
-        res = Math.max(end - start + 1, res);
-
+        if (s == null || s.length() < 1) return 0;
+        int res = 0;
+        for (int i = 0; i < s.length(); i++)
+            res = Math.max(res, findMaxParen(s, i)); // We assume i and j is the center, and extend from center
         return res;
+    }
+    private int findMaxParen(String s, int start) {
+        int open = 0;
+        int res = 0;
+        for (int i = start; i < s.length(); i++) {
+            if (s.charAt(i) == '(') open++;
+            else open--;
+            if (open == 0) res = i - start + 1;
+            if (open < 0) break;
+        }
+        return res;
+    }
+
+    /**
+     * dp, T(n) = O(n), space = O (n)
+     * @param s
+     * @return
+     */
+    public int longestValidParentheses2(String s) {
+//        if (s == null)
+        return 1;
     }
 
     public static void main(String[] args) {
