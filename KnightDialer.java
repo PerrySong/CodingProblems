@@ -1,63 +1,53 @@
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class KnightDialer {
+    private Map<Integer, List<Integer>> neighbors;
+    Map<Integer, Map<Integer, Integer>> cache; // <number, <remain len, number of mutations>>
 
-    private final static int[][] DIRECTIONS  = {{2, 1}, {-2, 1}, {2, -1}, {-2, -1}, {1, 2}, {-1, 2}, {1, -2}, {-1, -2}};
-
-
-
-    public int dfsDialer(int i, int j) {
-        boolean[][] visited = new boolean[4][3];
-        return dfs(new int[] {i, j}, visited);
+    public KnightDialer() {
+        neighbors = new HashMap<>();
+        cache = new HashMap<>();
+        neighbors.put(1, Arrays.asList(6, 8));
+        neighbors.put(2, Arrays.asList(7, 9));
+        neighbors.put(3, Arrays.asList(4, 8));
+        neighbors.put(4, Arrays.asList(3, 9, 0));
+        neighbors.put(5, new ArrayList<>());
+        neighbors.put(6, Arrays.asList(1, 7, 0));
+        neighbors.put(7, Arrays.asList(2, 6));
+        neighbors.put(8, Arrays.asList(1, 3));
+        neighbors.put(9, Arrays.asList(2, 4));
+        neighbors.put(0, Arrays.asList(4, 6));
     }
-    public int dfs(int[] start, boolean[][] visited) {
-        if ((start[0] < 0 || start[0] > 3 || start[1] < 0 || start[1] > 2) || // Check the start is inside of the board
-                (start[0] == 3 && (start[1] == 0 || start[1] == 2)) ||
-                visited[start[0]][start[1]]) {
+
+    public int dialer(int start, int len) {
+        List<List<Integer>> res = new ArrayList<>();
+        //< number, <len, combinations of numbers>>
+        return dfs(start, len);
+    }
+
+    private int dfs(int start, int len) {
+        if (len == 0) {
             return 0;
         }
-        int res = 1;
-        visited[start[0]][start[1]] = true;
-        for (int[] dir : DIRECTIONS) {
-            res += dfs(new int[] {start[0] + dir[0], start[1] + dir[1]}, visited);
+        if (len == 1) return 1;
+        if (cache.containsKey(start) && cache.get(start).containsKey(len)) {
+            return cache.get(start).get(len);
         }
-        return res;
-    }
-
-    public int bfsDialer(int i, int j) {
-        boolean[][] visited = new boolean[4][3];
-        Queue<int[]> queue = new LinkedList<>();
-        int[] start = new int[] {i, j};
-        queue.offer(start);
         int count = 0;
-        while (!queue.isEmpty()) {
-            start = queue.poll();
-            if ((start[0] < 0 || start[0] > 3 || start[1] < 0 || start[1] > 2) || // Check the start is inside of the board
-                    (start[0] == 3 && (start[1] == 0 || start[1] == 2)) ||
-                    visited[start[0]][start[1]]) {
-                continue;
-            }
-            for (int[] dir : DIRECTIONS) {
-                queue.offer(new int[] {start[0] + dir[0], start[1] + dir[1]});
-            }
-            visited[start[0]][start[1]] = true;
-            count++;
+        for (int next : neighbors.get(start)) {
+            count += dfs(next, len - 1);
+        }
+        if (!cache.containsKey(start)) {
+            Map<Integer, Integer> lenToMutations = new HashMap<>();
+            lenToMutations.put(len, count);
+        } else {
+            cache.get(start).put(len, count);
         }
         return count;
     }
 
     public static void main(String[] args) {
         KnightDialer a = new KnightDialer();
-        System.out.println(a.dfsDialer(3, 1));
-        System.out.println(a.dfsDialer(10, 10));
-        System.out.println(a.dfsDialer(1, 0));
-        System.out.println(a.dfsDialer(3, 0));
-
-        System.out.println(a.bfsDialer(3, 1));
-        System.out.println(a.bfsDialer(10, 10));
-        System.out.println(a.bfsDialer(1, 0));
-        System.out.println(a.bfsDialer(3, 0));
-        System.out.println(a.bfsDialer(2, 1));
+        System.out.println(a.dialer(6, 3));
     }
 }
