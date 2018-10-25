@@ -49,5 +49,6 @@ public class KnightDialer {
     public static void main(String[] args) {
         KnightDialer a = new KnightDialer();
         System.out.println(a.dialer(6, 3));
+        System.out.println(a.dialer(5, 4));
     }
 }
