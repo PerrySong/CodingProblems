@@ -17,7 +17,7 @@ public class LicenseKeyFormatting {
          return res.reverse().toString();
          }
      */
-    
+
     public String licenseKeyFormatting(String S, int K) {
         StringBuilder res = new StringBuilder();
         S = S.replaceAll("-", "");
