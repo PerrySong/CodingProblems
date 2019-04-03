@@ -8,7 +8,7 @@ public class ValidParameters {
             if (c == '(' || c == '[' || c == '{') {
                 stack.push(c);
             } else {
-                if (stack.size() == 0) return false;
+                if (stack.empty()) return false;
                 char open = stack.pop();
                 if (!(open == '(' && c == ')') &&
                         !(open == '[' && c == ']') &&
