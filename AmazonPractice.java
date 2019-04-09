@@ -79,12 +79,24 @@ public class AmazonPractice {
 
     public static void main(String[] args) {
         AmazonPractice a = new AmazonPractice();
+        System.out.println(sum(new int[][] {{1, 2}, {2, 1}}));
     }
 
 
     /**
         Interview prepare
      */
-    
+
+    public static int sum(int[][] m) {
+        if (m == null) return 0;
+        int len = m.length;
+        int sum1 = 0, sum2 = 0;
+        for (int i = 0; i < len; i++) {
+            sum1 += m[i][i];
+            sum2 += m[i][len - i - 1];
+        }
+        return Math.abs(sum1 - sum2);
+    }
+
 
 }
