@@ -14,8 +14,9 @@ public class RemoveDuplicateLetters {
 
      * @param s
      * @return
-     * 
+     *
      */
+    
     public String removeDuplicateLetters(String s) {
         if (s == null || s.equals("")) return s;
         int pos = 0;
