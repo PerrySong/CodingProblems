@@ -16,12 +16,12 @@ public class NQueens {
 
          Input: 4
          Output: [
-         [".Q..",  // Solution 1
+         [".Q..",  // AmazonDebug 1
          "...Q",
          "Q...",
          "..Q."],
 
-         ["..Q.",  // Solution 2
+         ["..Q.",  // AmazonDebug 2
          "Q...",
          "...Q",
          ".Q.."]

@@ -73,7 +73,7 @@ public class BinaryTreeVerticalOrderTraversal {
          ]
      */
 
-    /**Solution 1: T(n) = O(nlgn), Space: O(n)  lame solution */
+    /**AmazonDebug 1: T(n) = O(nlgn), Space: O(n)  lame solution */
 //    class NodeIndex implements Comparable<NodeIndex> {
 //        TreeNode node;
 //        int index;

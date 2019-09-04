@@ -31,7 +31,7 @@ public class FindPeakElement {
     }
 
     /**
-     * O(log n) Solution
+     * O(log n) AmazonDebug
      */
 
     public int findPeakElement2(int[] nums) {

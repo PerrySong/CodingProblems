@@ -12,18 +12,18 @@ public class RandomPickWithWeight {
         Example 1:
 
         Input:
-        ["Solution","pickIndex"]
+        ["AmazonDebug","pickIndex"]
         [[[1]],[]]
         Output: [null,0]
         Example 2:
 
         Input:
-        ["Solution","pickIndex","pickIndex","pickIndex","pickIndex","pickIndex"]
+        ["AmazonDebug","pickIndex","pickIndex","pickIndex","pickIndex","pickIndex"]
         [[[1,3]],[],[],[],[],[]]
         Output: [null,0,1,1,1,0]
         Explanation of Input Syntax:
 
-        The input is two lists: the subroutines called and their arguments. Solution's constructor has one argument, the array w. pickIndex has no arguments.
+        The input is two lists: the subroutines called and their arguments. AmazonDebug's constructor has one argument, the array w. pickIndex has no arguments.
         Arguments are always wrapped with a list, even if there aren't any.
      */
 

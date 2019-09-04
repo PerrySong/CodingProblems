@@ -3,13 +3,13 @@ import java.util.Map;
 
 public class FlipGameII {
     /**
-     Solution 1:
+     AmazonDebug 1:
      Recursion
      T(N) = (N - 1) * T(N - 2) = (N - 1) * (N - 3) * T(N - 4) = (N - 1) !
 
      canWin("++++++") = !canWin("--++++") || !canWin("+--+++") || !canWin("++--++") || !canWin("+++--+") || !canWin("++++--")
 
-     Solution 2:
+     AmazonDebug 2:
      Recursion + memoriztion
 
      */

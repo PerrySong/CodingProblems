@@ -40,7 +40,7 @@ public class HIndexII {
     }
 
     /**
-     * Binary Search Solution:
+     * Binary Search AmazonDebug:
      * Time: O(lg n)
      * Space: O(1)
      */
