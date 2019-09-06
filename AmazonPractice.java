@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class AmazonPractice {
     public static int[] sortArray(int[] arr) {
@@ -77,10 +78,7 @@ public class AmazonPractice {
 
     }
 
-    public static void main(String[] args) {
-        AmazonPractice a = new AmazonPractice();
-        System.out.println(sum(new int[][] {{1, 2}, {2, 1}}));
-    }
+
 
 
     /**
@@ -99,4 +97,40 @@ public class AmazonPractice {
     }
 
 
+    // New OA
+
+    //lc 240
+    static PairInt locationOfTargetValue(int rowCount, int columnCount, List<List<Integer>> matrix, int targetValue) {
+        if (rowCount <= 0 || columnCount <= 0 || matrix == null || matrix.get(0) == null) return new PairInt(-1, -1);
+        int i = 0, j = columnCount - 1;
+        while (i < rowCount && j >= 0) {
+            int curVal = matrix.get(i).get(j);
+            if (curVal == targetValue) {
+                return new PairInt(i, j);
+            }
+            if (curVal < targetValue) {
+                i--;
+            } else {
+                j++;
+            }
+        }
+        return new PairInt(-1, -1);
+    }
+
+    static class PairInt {
+        int first, second;
+        PairInt() {}
+        PairInt(int first, int second) {
+            this.first = first;
+            this.second = second;
+        }
+    }
+
+    public static void main(String[] args) {
+//        AmazonPractice a = new AmazonPractice();
+//        System.out.println(sum(new int[][] {{1, 2}, {2, 1}}));
+
+//        List<List<Integer>> matrix = new ArrayList
+//        PairInt res = locationOfTargetValue(3, 4, matrix, 3);
+    }
 }
