@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleLocalSettings">
+    <option name="projectSyncType">
+      <map>
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-lab01-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-lab02-PerrySong" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-lab02-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-lab03-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-lab04-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-lab05-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-lab06-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-lab09-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-lab10-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-lectures/L20/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-lectures/L34-L36/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-proj1-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-proj2-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-proj3-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-proj4-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-proj4-ksonar/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs686-proj5-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../Dataprocessing/cs999-proj5-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../cs686-lab07-PerrySong/java" value="PREVIEW" />
+        <entry key="$PROJECT_DIR$/../cs686-lab08-PerrySong/java" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/cs686-lab01-PerrySong" value="PREVIEW" />
+        <entry key="$USER_HOME$/IdeaProjects/cs686-lab05-PerrySong" value="PREVIEW" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="1720" />
+    <option name="y" value="114" />
+    <option name="width" value="1440" />
+    <option name="height" value="806" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Alerter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Alerter" />
+      <module name="CodingProblems" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Alerter" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
